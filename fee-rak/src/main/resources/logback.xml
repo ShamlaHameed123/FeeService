@@ -1,0 +1,15 @@
+<configuration>
+<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+  <logger name="org.springframework.web" level="DEBUG"/>
+  <logger name="rak.skiply.fee" level="trace"></logger>
+</configuration>

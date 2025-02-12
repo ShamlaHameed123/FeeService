@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transaction Successful</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+ 
+<div class="container">
+    <div class="header">
+		<img th:src="@{/images/skiply_logo.png}" alt="Skiply Logo"/>
+    </div>
+ 
+    <div class="success-banner">Your transaction is Successful - Test</div>
+ 
+    <div class="content">
+        <p>Hi <span class="bold" th:text="${transaction.studentName}"></span>,</p>
+        <p>
+            <strong>Congratulations!</strong> Your payment transaction is successful with
+            <span class="highlight" th:text="${transaction.schoolName}"></span> for
+            <span class="bold" th:text="${transaction.studentName}"></span>, student of
+            <span class="bold" th:text="${transaction.grade}"></span>.
+        </p>
+        <p>Kindly find the details below:</p>
+ 
+        <div class="transaction-details">
+            <div class="logo-container">
+                <img th:src="@{/images/skiply_logo.png}" alt="Skiply Logo"/>
+            </div>
+            <div class="details">
+                <p>📅 <strong>Date & Time:</strong> <span th:text="${transaction.paymentDateTime}"></span></p>
+                <p>👤 <strong>Student Name:</strong> <span th:text="${transaction.studentName}"></span></p>
+                <p>🆔 <strong>Student ID:</strong> <span th:text="${transaction.studentId}"></span></p>
+                <p>🔢 <strong>Reference #:</strong> <span th:text="${transaction.referenceNumber}"></span></p>
+                <p>💳 <strong>Card #:</strong> <span th:text="${transaction.cardNumber}"></span></p>
+                <p>🛡️ <strong>Card Type:</strong>
+                    <img src="/images/mastercard.png" width="30px" th:if="${transaction.cardType == 'MASTERCARD'}">
+                    <img src="/images/visa.png" width="30px" th:if="${transaction.cardType == 'VISA'}">
+                </p>
+            </div>
+        </div>
+ 
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Purchase Details</th>
+                    <th>Currency</th>
+                    <th>Custom Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tuition Fees (<span th:text="${transaction.noOfPayments}"></span> x Grade <span th:text="${transaction.grade}"></span>)</td>
+                    <td th:text="${transaction.currency}"></td>
+                    <td th:text="${transaction.tuitionFees}"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>Total</strong></td>
+                    <td th:text="${transaction.tuitionFees}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+    <div class="footer">
+        <p>This is an automated email, please do not reply. For any other queries, contact us at
+            <a href="mailto:contactus@skiply.ae">contactus@skiply.ae</a>.
+        </p>
+    </div>
+</div>
+ 
+</body>
+</html>
