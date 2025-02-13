@@ -12,4 +12,4 @@ Collection published at https://documenter.getpostman.com/view/3286793/2sAYXBGzK
 1. executePayment: localhost:8081/fee-service/fee-payment/executePayment
 2. fetch recent payment details: localhost:8081/fee-service/fee-payment/details
 3. view receipt, open http://localhost:8081/fee-service/receipt/ in the browser and enter details to get receipt
-4. To view database table, visit http://localhost:8081/fee-service/h2-console
+4. To view database table, visit http://localhost:8081/fee-service/h2-console, username: sa, password: password
